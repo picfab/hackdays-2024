@@ -52,6 +52,7 @@ export const ImageWp = async ({
       image?.media_details?.sizes?.medium?.source_url || image?.source_url,
       image.mime_type
     );
+
     if (base64)
       return (
         <>

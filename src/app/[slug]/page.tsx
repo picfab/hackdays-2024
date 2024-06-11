@@ -1,27 +1,18 @@
 import { ImageWp } from '@/components/image';
-
-async function getSinglePost(postId: string) {
-  console.log(
-    postId,
-    `${process.env.NEXT_PUBLIC_WORDPRESS_CUSTOM_API_URL}/slug/${postId}`
-  );
-
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_CUSTOM_API_URL}/slug/${postId}`
-  );
-  const post = await response.json();
-  return post;
-}
+import { getPostBySlug } from '@/utils/getPostBySlug';
+import { draftMode } from 'next/headers';
 
 const page = async ({ params }: any) => {
-  console.log(params);
-  const post = await getSinglePost(params.postID);
+  const { isEnabled } = draftMode();
+
+  const post = await getPostBySlug(params.slug, isEnabled);
 
   if (!post) {
     return <div>Loading...</div>;
   }
   return (
     <div className='single-blog-page'>
+      {isEnabled ? 'Draft' : 'NOOOO'}
       <ImageWp id={post?.blocks?.[2]?.attrs?.data?.image} />
 
       {/* <h2>{post.title.rendered}</h2>

@@ -21,7 +21,6 @@ export async function GET(request: NextRequest) {
 
   const path = request.nextUrl.searchParams.get('path');
   const secret = request.nextUrl.searchParams.get('secret');
-  console.log('request', { path, secret });
 
   if (secret !== process.env.NEXT_REVALIDATE_SECRET) {
     return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
