@@ -5,8 +5,7 @@ import { ValueProposition } from '@/components/ValueProposition';
 import { getPostBySlug } from '@/utils/getPostBySlug';
 import { draftMode } from 'next/headers';
 import { ImageTabs } from '@/components/ImageTabs';
-import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
-import { prepareImageData } from '@/utils/image';
+
 
 const page = async ({ params }: any) => {
   const { isEnabled } = draftMode();
