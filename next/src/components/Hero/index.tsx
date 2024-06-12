@@ -37,7 +37,7 @@ export const Hero = async ({
           )}
           <div className='flex flex-col gap-12 md:flex-row'>
             {buttons?.map((button, index) => (
-              <a key={index} href={button.url}>
+              <a key={index} href={button.link_url}>
                 <div
                   className={classNames(
                     'ButtonV2',
