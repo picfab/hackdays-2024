@@ -33,6 +33,9 @@ services:
     restart: unless-stopped
 
   wordpress:
+    build:
+      context: ./wordpress
+      dockerfile: Containerfile
     depends_on:
       database:
         condition: service_healthy
@@ -42,17 +45,28 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_CONFIG_EXTRA: "define('WP_HOME', 'https://hackdays-wp.reiwilde.com'); define('WP_SITEURL', 'https://hackdays-wp.reiwilde.com');"
     hostname: wordpress
-    image: docker.io/wordpress:6.5.4
     restart: unless-stopped
+    user: 1000:1000
     volumes:
       - ./wordpress:/var/www/html
+
+  next:
+    build:
+      context: .
+      dockerfile: next/Containerfile
+    depends_on:
+      - wordpress
+    hostname: next
+    restart: unless-stopped
 
   nginx:
     build:
       context: ./nginx
       dockerfile: Containerfile
     depends_on:
+      - next
       - phpmyadmin
       - wordpress
     hostname: nginx

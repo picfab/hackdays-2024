@@ -1,0 +1,6 @@
+FROM docker.io/wordpress:6.5.4
+
+RUN usermod -u 1000 www-data \
+  && groupmod -g 1000 www-data \
+  && chown -R www-data:www-data /usr/src/wordpress \
+  && chown -R www-data:www-data /var/www/html

@@ -1,0 +1,8 @@
+server {
+	listen 80;
+  	server_name hackdays.reiwilde.com;
+
+	location / {
+		proxy_pass http://next:3000;
+	}
+}

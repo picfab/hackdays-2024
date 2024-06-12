@@ -1,9 +1,9 @@
 server {
 	listen 80;
-	server_name hackdays-wp.reiwilde.me;
+	server_name hackdays-wp.reiwilde.com;
 
 	location / {
+		proxy_set_header X-Forwarded-Proto $scheme;
 		proxy_pass http://wordpress;
-		proxy_request_buffering off;
 	}
 }
