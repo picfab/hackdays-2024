@@ -102,3 +102,63 @@ function custom_preview_post_link($preview_link, $post)
    }
    return $preview_link;
 }
+
+
+// function modify_post_link($actions, $post)
+// {
+//    if ($post->post_type == 'post') {
+//       if (isset($actions['view'])) {
+//          $new_url  = NEXTJS_URL  . $post->post_name;
+//          $actions['view'] = '<a href="' . esc_url($new_url) . '" target="_blank">View Post</a>';
+//       }
+//    }
+//    return $actions;
+// }
+// add_filter('post_row_actions', 'modify_post_link', 10, 2);
+// add_filter('page_row_actions', 'modify_post_link', 10, 2);
+
+
+
+// function enqueue_custom_gutenberg_script()
+// {
+//    wp_enqueue_script(
+//       'custom-gutenberg-view-link-script',
+//       plugin_dir_url(__FILE__) . 'rewrite-native-post-url.js',
+//       array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
+//       filemtime(plugin_dir_path(__FILE__) . 'rewrite-native-post-url.js'),
+//       true
+//    );
+
+//    // Localize the script with the Next.js base URL
+//    $nextjs_base_url = NEXTJS_URL;
+//    wp_localize_script(
+//       'custom-gutenberg-view-link-script',
+//       'customGutenbergData',
+//       array(
+//          'nextjsBaseUrl' => $nextjs_base_url,
+//       )
+//    );
+// }
+// add_action('enqueue_block_editor_assets', 'enqueue_custom_gutenberg_script');
+
+
+
+
+add_filter('the_content', 'replace_internal_links');
+add_filter('post_link', 'replace_internal_links');
+add_filter('page_link', 'replace_internal_links');
+add_filter('the_permalink', 'replace_internal_links');
+
+function replace_internal_links($content)
+{
+   // Définir votre nouvelle URL de base Next.js
+   $new_base_url = NEXTJS_URL;
+
+   // Récupérer l'URL actuelle de WordPress
+   $current_base_url = get_site_url();
+
+   // Remplacer les URLs internes de WordPress par celles de Next.js
+   $content = str_replace($current_base_url . '/', $new_base_url, $content);
+
+   return $content;
+}
