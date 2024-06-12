@@ -1,0 +1,17 @@
+{
+  "name": "payfit/hero",
+  "title": "Hero acf",
+  "description": "A custom testimonial block that uses ACF fields.",
+  "editorStyle": "file:../../build/hero-editor.css",
+  "style": "file:../../build/hero-styles.css",
+  "category": "formatting",
+  "icon": "admin-comments",
+  "keywords": ["Payfit"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "template.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

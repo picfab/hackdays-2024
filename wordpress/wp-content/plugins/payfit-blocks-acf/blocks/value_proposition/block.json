@@ -1,0 +1,17 @@
+{
+  "name": "payfit/testimonial",
+  "title": "Payfit testimonial",
+  "description": "A custom testimonial block that uses ACF fields.",
+  "editorStyle": "file:../../build/testimonial-editor.css",
+  "style": "file:../../build/testimonial-styles.css",
+  "category": "payfit",
+  "icon": "admin-comments",
+  "keywords": ["testimonial"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "template.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

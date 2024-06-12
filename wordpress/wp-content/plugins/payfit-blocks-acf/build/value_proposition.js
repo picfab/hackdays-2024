@@ -1,0 +1,2 @@
+/*! For license information please see value_proposition.js.LICENSE.txt */
+(()=>{"use strict";var __webpack_modules__={"./blocks/value_proposition/index.tsx":()=>{eval("\nconsole.log('hello value proposition');\n\n\n//# sourceURL=webpack://payfit-blocks-acf/./blocks/value_proposition/index.tsx?")}},__webpack_exports__={};__webpack_modules__["./blocks/value_proposition/index.tsx"]()})();

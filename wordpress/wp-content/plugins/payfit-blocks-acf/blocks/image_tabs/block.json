@@ -1,0 +1,17 @@
+{
+  "name": "payfit/image-tabs",
+  "title": "Payfit Image Tabs",
+  "description": "A custom testimonial block that uses ACF fields.",
+  "editorStyle": "file:../../build/image_tabs-editor.css",
+  "style": "file:../../build/image_tabs-styles.css",
+  "category": "payfit",
+  "icon": "admin-comments",
+  "keywords": ["Image tabs"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "template.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}
