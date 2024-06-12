@@ -6,6 +6,7 @@ const page = async ({ params }: any) => {
   const { isEnabled } = draftMode();
 
   const post = await getPostBySlug(params.slug, isEnabled);
+  console.log('post', post);
 
   if (!post) {
     return <div>Loading...</div>;
@@ -13,12 +14,12 @@ const page = async ({ params }: any) => {
   return (
     <div className='single-blog-page'>
       {isEnabled ? 'Draft' : 'NOOOO'}
-      <ImageWp id={post?.blocks?.[2]?.attrs?.data?.image} />
-
-      {/* <h2>{post.title.rendered}</h2>
-      <div className='blog-post'>
-        <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
-      </div> */}
+      {post?.blocks.map((block: any, index: number) => {
+        if (block.blockName === 'payfit/hero') {
+          return <div key={index}>{block.blockName}</div>;
+        }
+      })}
+      {/* <ImageWp id={post?.blocks?.[2]?.attrs?.data?.image} /> */}
     </div>
   );
 };
