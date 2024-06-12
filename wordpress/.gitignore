@@ -1,2 +1,10 @@
+/wp-content/plugins/*
+!/wp-content/plugins/index.php
+!/wp-content/plugins/allow-files
+!/wp-content/plugins/blocks-to-api
+!/wp-content/plugins/payfit-blocks-acf
+!/wp-content/plugins/payfit-nextjs-revalidate-cache
+!/wp-content/plugins/webp-to-api-rest
+
 /wp-content/uploads/*
 !/wp-content/.gitkeep
