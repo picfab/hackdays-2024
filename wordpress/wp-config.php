@@ -129,5 +129,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
 }
 
+
+define( 'WP_HOME', getenv_docker('WORDPRESS_HOME', '') );
+define( 'WP_SITEURL', getenv_docker('WORDPRESS_SITEURL', '') );
+
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';

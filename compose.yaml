@@ -45,7 +45,8 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_CONFIG_EXTRA: "define('WP_HOME', 'https://hackdays-wp.reiwilde.com'); define('WP_SITEURL', 'https://hackdays-wp.reiwilde.com');"
+      WORDPRESS_HOME: https://hackdays-wp.reiwilde.com
+      WORDPRESS_SITEURL: https://hackdays-wp.reiwilde.com
     hostname: wordpress
     restart: unless-stopped
     user: 1000:1000
