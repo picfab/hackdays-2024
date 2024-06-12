@@ -1,2 +1,0 @@
-/*! For license information please see hero.js.LICENSE.txt */
-(()=>{"use strict";var __webpack_modules__={"./blocks/hero/index.tsx":()=>{eval("\nconsole.log('hello');\n\n\n//# sourceURL=webpack://payfit-blocks-acf/./blocks/hero/index.tsx?")}},__webpack_exports__={};__webpack_modules__["./blocks/hero/index.tsx"]()})();

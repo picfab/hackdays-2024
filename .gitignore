@@ -1,5 +1,8 @@
 # nodejs
 node_modules
 
+# docker
+compose.yaml
+
 # system
 .DS_Store

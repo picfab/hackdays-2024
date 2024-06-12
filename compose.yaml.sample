@@ -4,10 +4,10 @@ volumes:
 services:
   database:
     environment:
-      MARIADB_ROOT_PASSWORD: root
+      MARIADB_ROOT_PASSWORD:
       MARIADB_DATABASE: wordpress
-      MARIADB_USER: wordpress
-      MARIADB_PASSWORD: wordpress
+      MARIADB_USER:
+      MARIADB_PASSWORD:
     healthcheck:
       interval: 1m
       retries: 3
@@ -27,8 +27,8 @@ services:
         condition: service_healthy
     environment:
       PMA_HOST: database
-      PMA_USER: root
-      PMA_PASSWORD: root
+      PMA_USER:
+      PMA_PASSWORD:
     image: docker.io/phpmyadmin:5.2.1
     restart: unless-stopped
 
@@ -43,13 +43,12 @@ services:
       WORDPRESS_DEBUG: 1
       WORDPRESS_DB_HOST: database
       WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_HOME: https://hackdays-wp.reiwilde.com
-      WORDPRESS_SITEURL: https://hackdays-wp.reiwilde.com
+      WORDPRESS_DB_USER:
+      WORDPRESS_DB_PASSWORD:
+      WORDPRESS_HOME:
+      WORDPRESS_SITEURL:
     hostname: wordpress
     restart: unless-stopped
-    user: 1000:1000
     volumes:
       - ./wordpress:/var/www/html
 
@@ -59,6 +58,12 @@ services:
       dockerfile: next/Containerfile
     depends_on:
       - wordpress
+    environment:
+      NEXT_PUBLIC_WORDPRESS_API_URL: http://wordpress/wp-json/wp/v2
+      NEXT_PUBLIC_WORDPRESS_CUSTOM_API_URL: http://wordpress/wp-json/custom/v1
+      NEXT_PUBLIC_DOMAIN:
+      NEXT_REVALIDATE_SECRET:
+      NEXT_PUBLIC_WORDPRESS_AUTHORIZATION:
     hostname: next
     restart: unless-stopped
 
