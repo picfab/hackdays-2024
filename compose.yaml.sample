@@ -63,7 +63,7 @@ services:
       NEXT_PUBLIC_WORDPRESS_CUSTOM_API_URL: http://wordpress/wp-json/custom/v1
       NEXT_PUBLIC_DOMAIN:
       NEXT_REVALIDATE_SECRET:
-      NEXT_PUBLIC_WORDPRESS_AUTHORIZATION:
+      NEXT_WORDPRESS_AUTHORIZATION:
     hostname: next
     restart: unless-stopped
 

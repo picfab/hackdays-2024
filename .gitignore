@@ -6,3 +6,5 @@ compose.yaml
 
 # system
 .DS_Store
+
+.env*

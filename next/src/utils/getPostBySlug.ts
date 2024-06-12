@@ -1,7 +1,7 @@
 export async function getPostBySlug(slug: string, isDraft: boolean = false) {
   const myHeaders = new Headers();
   const base64Credentials = btoa(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_AUTHORIZATION}`
+    `${process.env.NEXT_WORDPRESS_AUTHORIZATION}`
   );
   const authorization: any = `Basic ${base64Credentials}`;
 
