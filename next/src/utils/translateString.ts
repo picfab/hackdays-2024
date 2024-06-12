@@ -10,6 +10,7 @@ export const translateString = (
   }
   const textTranslated = dataTranslate?.[language];
 
+  
   if (textTranslated) {
     return textTranslated;
   }
