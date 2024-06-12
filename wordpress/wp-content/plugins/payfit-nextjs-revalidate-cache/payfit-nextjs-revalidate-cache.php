@@ -29,7 +29,7 @@ function revalidate_next($path)
 
    curl_setopt_array($curl, array(
 
-      CURLOPT_URL => 'https://hackdays-2024.vercel.app/api/revalidate?secret=' . NEXTJS_TOKEN . '&path=' . $path,
+      CURLOPT_URL => NEXTJS_URL . '/api/revalidate?secret=' . NEXTJS_TOKEN . '&path=' . $path,
 
       CURLOPT_RETURNTRANSFER => true,
 
@@ -82,7 +82,7 @@ function revalide_nextjs_page($post_id, $post, $update)
 
       $rest_base = get_rest_base($post->post_type);
 
-      $path = "/$rest_base/$post->post_name";
+      $path = "/$post->post_name";
 
       revalidate_next($path);
    }

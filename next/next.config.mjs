@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost', 'payfit.fabienpicard.com'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '10009',
+      },
+      {
+        protocol: 'https',
+        hostname: 'payfit.fabienpicard.com',
+        port: '',
+      },
+    ],
   },
   dangerouslyAllowSVG: true,
 };

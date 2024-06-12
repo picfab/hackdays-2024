@@ -12,8 +12,8 @@ const page = async ({ params }: any) => {
   const { isEnabled } = draftMode();
 
   const post = await getPostBySlug(params.slug, isEnabled);
-  console.log('post', post);
-  console.log('✅params', params);
+  // console.log('post', post);
+  // console.log('✅params', params);
 
   if (!post) {
     return <div>Loading...</div>;
