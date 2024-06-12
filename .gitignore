@@ -1,16 +1,5 @@
 # nodejs
 node_modules
 
-# wordpress
-/wordpress/wp-content/uploads
-!/wordpress/wp-content/uploads/.gitkeep
-
 # system
 .DS_Store
-
-#plugin external
-advanced-custom-fields-pro
-imagify
-imsanity
-wp-seopress
-wp-seopress-pro
