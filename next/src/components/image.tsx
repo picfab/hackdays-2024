@@ -9,6 +9,7 @@ export const ImageWp = ({
   width,
   alt,
   className,
+  priority,
   ...props
 }: any) => {
   if (imageData) {
@@ -31,6 +32,7 @@ export const ImageWp = ({
           fill={fill}
           style={{ objectFit: fill && objectFit }}
           className={className}
+          priority={priority}
         />
       </>
     );

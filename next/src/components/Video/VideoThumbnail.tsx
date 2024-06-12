@@ -11,6 +11,7 @@ export interface VideoThumbnailProps {
   gradient?: boolean;
   classnameThumbnail?: string;
   classnameBoxThumbnail?: string;
+  imagePriority?: boolean;
 }
 
 export const VideoThumbnail = ({
@@ -20,6 +21,7 @@ export const VideoThumbnail = ({
   gradient,
   classnameThumbnail,
   classnameBoxThumbnail,
+  imagePriority = false,
 }: VideoThumbnailProps) => {
   return (
     <div
@@ -46,6 +48,7 @@ export const VideoThumbnail = ({
             'object-cover w-full h-full rounded-18',
             classnameThumbnail
           )}
+          priority={imagePriority}
         />
       )}
       {gradient && (

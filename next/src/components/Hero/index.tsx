@@ -15,7 +15,6 @@ export const Hero = async ({
   const buttons = prepareRepeaterData('buttons', props);
   const imageData = await prepareImageData(image);
 
-
   const logoData = await prepareImageData(logo);
 
   return (
@@ -71,6 +70,7 @@ export const Hero = async ({
               loading='eager'
               imageData={imageData}
               {...image}
+              priority={true}
             />
           )}
           {video && (
@@ -79,6 +79,7 @@ export const Hero = async ({
               imageData={imageData}
               logoData={logoData}
               url={video}
+              imagePriority={true}
             />
           )}
         </div>

@@ -22,6 +22,7 @@ export interface VideoModalProps {
   classnameBoxThumbnail?: string;
   onClick?: any;
   url: string;
+  imagePriority?: boolean;
 }
 
 export const VideoModal = ({
@@ -33,8 +34,8 @@ export const VideoModal = ({
   ratio = 'video',
   classnameThumbnail,
   classnameBoxThumbnail,
+  imagePriority = false,
 }: VideoModalProps) => {
-  
   const [showVideo, setShowVideo] = useState(false);
 
   const toggleVideo = (e: any) => {
@@ -58,6 +59,7 @@ export const VideoModal = ({
           logoData={logoData}
           classnameThumbnail={classnameThumbnail}
           classnameBoxThumbnail={classnameBoxThumbnail}
+          imagePriority={imagePriority}
         />
         <ModalVideoContent />
       </div>
