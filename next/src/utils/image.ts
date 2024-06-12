@@ -42,6 +42,8 @@ export const getImage = async (id: number | string) => {
 export const isSvg = (url: string) => url?.endsWith('.svg');
 export const prepareImageData = async (id: number | string) => {
   const imageData = await getImage(id);
+  console.log('ISSVG', isSvg(imageData?.source_url));
+
   if (imageData && isSvg(imageData?.source_url)) return imageData;
   const imageBase64 = await getBase64(
     imageData?.media_details?.sizes?.medium?.source_url ||
