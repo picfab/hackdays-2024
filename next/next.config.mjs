@@ -1,15 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'payfit.fabienpicard.com',
-        port: '',
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '10009',
       },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'payfit.fabienpicard.com',
+      //   port: '',
+      // },
     ],
   },
-  dangerouslyAllowSVG: true,
 };
 
 export default nextConfig;
