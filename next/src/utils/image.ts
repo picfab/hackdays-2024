@@ -4,7 +4,6 @@ const baseUrl =
     : process.env.NEXT_PUBLIC_DOMAIN;
 
 export const getBase64 = async (url: string, mime: string) => {
-
   const base64str = await fetch(
     `${baseUrl}/_next/image?url=${url}&w=16&q=75`
   ).then(async (res) =>
@@ -40,8 +39,10 @@ export const getImage = async (id: number | string) => {
   }
 };
 
+export const isSvg = (url: string) => url?.endsWith('.svg');
 export const prepareImageData = async (id: number | string) => {
   const imageData = await getImage(id);
+  if (imageData && isSvg(imageData?.source_url)) return imageData;
   const imageBase64 = await getBase64(
     imageData?.media_details?.sizes?.medium?.source_url ||
       imageData?.source_url,

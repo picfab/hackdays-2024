@@ -1,3 +1,4 @@
+import { isSvg } from '@/utils/image';
 import Image from 'next/image';
 
 export const ImageWp = ({
@@ -23,6 +24,7 @@ export const ImageWp = ({
           height={
             !fill ? height || imageData?.media_details?.height : undefined
           }
+          unoptimized={isSvg(imageData?.source_url) ? false : true}
           placeholder={imageData.imgBase64 ? 'blur' : undefined}
           blurDataURL={imageData.imgBase64}
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
