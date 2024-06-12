@@ -2,6 +2,7 @@ import { Content } from '@/components/Content';
 import { BannerDraftMode } from '@/components/BannerDraftMode';
 import { Hero } from '@/components/Hero';
 import { ValueProposition } from '@/components/ValueProposition';
+import { TestimonialSection } from '@/components/TestimonialSection';
 import { getPostBySlug } from '@/utils/getPostBySlug';
 import { draftMode } from 'next/headers';
 import { ImageTabs } from '@/components/ImageTabs';
@@ -18,7 +19,7 @@ const page = async ({ params }: any) => {
     return <div>Loading...</div>;
   }
   return (
-    <div className='single-blog-page'>
+    <div className="single-blog-page">
       {isEnabled ? <BannerDraftMode /> : ''}
       {post?.blocks.map(async (block: any, index: number) => {
         if (block.blockName === 'payfit/hero') {
@@ -32,6 +33,8 @@ const page = async ({ params }: any) => {
         }
         if (block.blockName === 'payfit/image-tabs') {
           return <ImageTabs key={index} {...block.attrs?.data} />;
+        if (block.blockName === 'payfit/testimonial') {
+          return <TestimonialSection key={index} {...block.attrs.data} />;
         }
         if (block.blockName === 'payfit/logo-list') {
           return <LogosList key={index} {...block.attrs?.data} />;
