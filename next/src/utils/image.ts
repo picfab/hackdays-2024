@@ -28,8 +28,6 @@ export const getBase64 = async (url: string, mime: string) => {
   return `data:image/svg+xml;base64,${toBase64(blurSvg)}`;
 };
 export const getImage = async (id: number | string) => {
-  console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${id}`);
-
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${id}`

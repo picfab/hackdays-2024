@@ -28,7 +28,7 @@ function revalidate_next($path)
    $curl = curl_init();
 
    curl_setopt_array($curl, array(
-      
+
       CURLOPT_URL => 'http://localhost:3000/api/revalidate?secret=' . NEXTJS_TOKEN . '&path=' . $path,
 
       CURLOPT_RETURNTRANSFER => true,
@@ -90,14 +90,15 @@ function revalide_nextjs_page($post_id, $post, $update)
 
 
 
-// add_filter('preview_post_link', 'custom_preview_post_link', 10, 2);
+add_filter('preview_post_link', 'custom_preview_post_link', 10, 2);
 
-// function custom_preview_post_link($preview_link, $post)
-// {
-//    if ($post->post_type == 'post') {
-//       // Personnalisez l'URL de prévisualisation ici
-//       $custom_url = home_url('/custom-preview/' . $post->ID . '/');
-//       return $custom_url;
-//    }
-//    return $preview_link;
-// }
+function custom_preview_post_link($preview_link, $post)
+{
+   if ($post->post_type == 'post') {
+      // Personnalisez l'URL de prévisualisation ici
+      $custom_url = NEXTJS_URL . 'api/draft?secret=' . NEXTJS_TOKEN . '&slug=' . $post->post_name;
+
+      return $custom_url;
+   }
+   return $preview_link;
+}

@@ -10,8 +10,6 @@ export const ImageWp = ({
   className,
   ...props
 }: any) => {
-  console.log('🚨', imageData);
-
   if (imageData) {
     return (
       <>
