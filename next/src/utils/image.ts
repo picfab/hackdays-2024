@@ -27,7 +27,7 @@ export const getBase64 = async (url: string, mime: string) => {
 
   return `data:image/svg+xml;base64,${toBase64(blurSvg)}`;
 };
-export const getImage = async (id: number) => {
+export const getImage = async (id: number | string) => {
   console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${id}`);
 
   try {
@@ -39,4 +39,14 @@ export const getImage = async (id: number) => {
   } catch (error) {
     return null;
   }
+};
+
+export const prepareImageData = async (id: number | string) => {
+  const imageData = await getImage(id);
+  const imageBase64 = await getBase64(
+    imageData?.media_details?.sizes?.medium?.source_url ||
+      imageData?.source_url,
+    imageData.mime_type
+  );
+  return Object.assign(imageData, { imageBase64 });
 };

@@ -2,7 +2,7 @@ import { classNames } from '@/utils/classNames';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
 import { ImageWp } from '../image';
 import { VideoModal } from '../VideoModal';
-import { getBase64, getImage } from '@/utils/image';
+import { getBase64, getImage, prepareImageData } from '@/utils/image';
 
 export const Hero = async ({
   title,
@@ -13,22 +13,10 @@ export const Hero = async ({
   ...props
 }: any) => {
   const buttons = prepareRepeaterData('buttons', props);
-  const imageData = await getImage(image);
-  const imgBase64 = await getBase64(
-    imageData?.media_details?.sizes?.medium?.source_url ||
-      imageData?.source_url,
-    imageData.mime_type
-  );
-  Object.assign(imageData, { imgBase64 });
+  const imageData = await prepareImageData(image);
 
-  const logoData = await getImage(logo);
-  const logoBase64 = await getBase64(
-    logoData?.media_details?.sizes?.medium?.source_url || logoData?.source_url,
-    logoData.mime_type
-  );
-  Object.assign(logoData, { logoBase64 });
 
-//   console.log('✅✅✅✅', imageData);
+  const logoData = await prepareImageData(logo);
 
   return (
     <section

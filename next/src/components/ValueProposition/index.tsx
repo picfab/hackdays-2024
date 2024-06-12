@@ -1,7 +1,7 @@
 import { classNames } from '@/utils/classNames';
 import { ImageWp } from '../image';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
-import { getBase64, getImage } from '@/utils/image';
+import { prepareImageData } from '@/utils/image';
 
 export interface ValuePropositionColumnsItemsProps {
   title?: string;
@@ -14,12 +14,8 @@ export interface ValuePropositionProps {
 }
 
 export const ValueProposition = ({ title, subtitle, ...props }: any) => {
-  // console.log(props);
-
-  const rep = prepareRepeaterData('valueContents', props);
 
   const valueContents = prepareRepeaterData('valueContents', props);
-  // console.log(rep);
 
   return (
     <div className='ValueProposition bg-neutral-1' id=''>
@@ -42,13 +38,7 @@ export const ValueProposition = ({ title, subtitle, ...props }: any) => {
           <div className='undefined'>
             <div className='flex gap-y-48 justify-center  flex-wrap'>
               {valueContents?.map(async (item: any, index: number) => {
-                const imageData = await getImage(item.logo);
-                const imgBase64 = await getBase64(
-                  imageData?.media_details?.sizes?.medium?.source_url ||
-                    imageData?.source_url,
-                  imageData.mime_type
-                );
-                Object.assign(imageData, { imgBase64 });
+                const imageData = await prepareImageData(item.logo);
                 return (
                   <div
                     key={index}

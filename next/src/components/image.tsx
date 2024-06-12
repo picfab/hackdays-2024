@@ -10,19 +10,6 @@ export const ImageWp = ({
   className,
   ...props
 }: any) => {
-  // console.log({
-  //   props,
-  //   url,
-  //   imgBase64,
-  //   fill,
-  //   objectFit,
-  //   height,
-  //   width,
-  //   alt,
-  //   className,
-  //   mime_type,
-  // });
-
   console.log('🚨', imageData);
 
   if (imageData) {
@@ -38,7 +25,7 @@ export const ImageWp = ({
           height={
             !fill ? height || imageData?.media_details?.height : undefined
           }
-          placeholder='blur'
+          placeholder={imageData.imgBase64 ? 'blur' : undefined}
           blurDataURL={imageData.imgBase64}
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           fill={fill}
