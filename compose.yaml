@@ -1,0 +1,53 @@
+volumes:
+  database:
+
+services:
+  database:
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+    healthcheck:
+      interval: 1m
+      retries: 3
+      start_period: 1m
+      start_interval: 10s
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      timeout: 5s
+    hostname: mariadb
+    image: docker.io/mariadb:11.4.2
+    restart: unless-stopped
+    volumes:
+      - database:/var/lib/mysql
+
+  phpmyadmin:
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      PMA_HOST: database
+      PMA_USER: root
+      PMA_PASSWORD: root
+    image: docker.io/phpmyadmin:5.2.1
+    ports:
+      - 9002:80/tcp
+    restart: unless-stopped
+
+  wordpress:
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    hostname: wordpress
+    image: docker.io/wordpress:6.5.4
+    ports:
+      - 9000:80/tcp
+    restart: unless-stopped
+    volumes:
+      - ./wordpress:/var/www/html
