@@ -1,6 +1,6 @@
 import { prepareImageData } from '@/utils/image';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
-import { ImageTabsComponent } from './ImageTabsComponent';
+import { ImageTabsComponent } from './ImageTab';
 
 export const ImageTabs = async (props: any) => {
   const _tabs = prepareRepeaterData('tabs', props);
