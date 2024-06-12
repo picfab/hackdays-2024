@@ -7,3 +7,11 @@ node_modules
 
 # system
 .DS_Store
+
+#plugin external
+advanced-custom-fields-pro
+imagify
+imsanity
+payfit-blocks
+wp-seopress
+wp-seopress-pro
