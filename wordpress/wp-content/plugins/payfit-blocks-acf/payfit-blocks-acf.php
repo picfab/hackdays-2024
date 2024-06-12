@@ -25,6 +25,9 @@ include_once(plugin_dir_path(__FILE__) . 'assets/add_id_block.php');
 
 // Import the ACF block
 include_once(plugin_dir_path(__FILE__) . 'blocks/hero/acf.php');
+include_once(plugin_dir_path(__FILE__) . 'blocks/image_tabs/acf.php');
+include_once(plugin_dir_path(__FILE__) . 'blocks/testimonial/acf.php');
+include_once(plugin_dir_path(__FILE__) . 'blocks/value_proposition/acf.php');
 
 
 /**
@@ -35,7 +38,7 @@ include_once(plugin_dir_path(__FILE__) . 'blocks/hero/acf.php');
  * @link https://developer.wordpress.org/reference/hooks/init/
  */
 
- 
+
 function tt3child_register_acf_blocks()
 {
 	/**

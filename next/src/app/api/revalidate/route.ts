@@ -26,6 +26,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
   }
 
+  console.log('Revalidating path:', path);
+
   if (path) {
     const _path = path.replace('/posts/', '/blog/');
     revalidatePath(_path);

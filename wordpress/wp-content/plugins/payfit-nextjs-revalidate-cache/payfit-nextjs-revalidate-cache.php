@@ -29,7 +29,7 @@ function revalidate_next($path)
 
    curl_setopt_array($curl, array(
 
-      CURLOPT_URL => 'http://localhost:3000/api/revalidate?secret=' . NEXTJS_TOKEN . '&path=' . $path,
+      CURLOPT_URL => 'https://hackdays-2024.vercel.app/api/revalidate?secret=' . NEXTJS_TOKEN . '&path=' . $path,
 
       CURLOPT_RETURNTRANSFER => true,
 
