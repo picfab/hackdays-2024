@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import Cross from '../../assets/images/cross.svg';
 import { lockScroll } from '@/utils/lockScroll';
 import { classNames } from '@/utils/classNames';
+import Image from 'next/image';
 
 export const Modal = ({
   open,
@@ -77,7 +77,14 @@ export const Modal = ({
                   if (e.code === 'enter') launchClose();
                 }}
               >
-                <Cross />
+                <Image
+                  src='/cross.svg'
+                  alt='Close modal'
+                  className='dark:invert'
+                  width={100}
+                  height={24}
+                  priority
+                />
               </div>
             )}
             <div

@@ -1,9 +1,35 @@
 import { classNames } from '@/utils/classNames';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
 import { ImageWp } from '../image';
+import { VideoModal } from '../VideoModal';
+import { getBase64, getImage } from '@/utils/image';
 
-export const Hero = ({ title, content, image, ...props }: any) => {
+export const Hero = async ({
+  title,
+  content,
+  image,
+  video,
+  logo,
+  ...props
+}: any) => {
   const buttons = prepareRepeaterData('buttons', props);
+  const imageData = await getImage(image);
+  const imgBase64 = await getBase64(
+    imageData?.media_details?.sizes?.medium?.source_url ||
+      imageData?.source_url,
+    imageData.mime_type
+  );
+  Object.assign(imageData, { imgBase64 });
+
+  const logoData = await getImage(logo);
+  const logoBase64 = await getBase64(
+    logoData?.media_details?.sizes?.medium?.source_url || logoData?.source_url,
+    logoData.mime_type
+  );
+  Object.assign(logoData, { logoBase64 });
+
+//   console.log('✅✅✅✅', imageData);
+
   return (
     <section
       id='hero-video'
@@ -49,27 +75,24 @@ export const Hero = ({ title, content, image, ...props }: any) => {
           </div>
         </div>
         <div className='relative flex w-full m-auto max-w-[380px]'>
-          <div className='VideoModal'>
-            <div
-              role='button'
-              tabIndex={0}
-              className='VideoThumbnail relative overflow-hidden group flex items-center justify-center h-full cursor-pointer w-full rounded-18'
-            >
-              <ImageWp
-                draggable='false'
-                style={{ objectFit: 'cover', opacity: 1 }}
-                decoding='async'
-                loading='eager'
-                id={image}
-              />
-              <div className='absolute w-full h-full rounded-18 bg-thumbnail-overlay'></div>
-              <span>
-                <div className='ButtonV2 items-center group VideoOpenButton absolute bottom-24 left-1/2 -translate-x-1/2 justify-center text-center flex cursor-pointer border-white text-white hover:bg-peach-100 hover:border-peach-100 hover:text-black rounded-6 border py-[13px] px-[24px] text-16'>
-                  ▶ Voir la vidéo
-                </div>
-              </span>
-            </div>
-          </div>
+          {!video && (
+            <ImageWp
+              draggable='false'
+              style={{ objectFit: 'cover', opacity: 1 }}
+              decoding='async'
+              loading='eager'
+              imageData={imageData}
+              {...image}
+            />
+          )}
+          {video && (
+            <VideoModal
+              gradient={true}
+              imageData={imageData}
+              logoData={logoData}
+              url={video}
+            />
+          )}
         </div>
       </div>
     </section>
