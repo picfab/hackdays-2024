@@ -4,6 +4,9 @@ import { Hero } from '@/components/Hero';
 import { ValueProposition } from '@/components/ValueProposition';
 import { getPostBySlug } from '@/utils/getPostBySlug';
 import { draftMode } from 'next/headers';
+import { ImageTabs } from '@/components/ImageTabs';
+import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
+import { prepareImageData } from '@/utils/image';
 
 const page = async ({ params }: any) => {
   const { isEnabled } = draftMode();
@@ -18,7 +21,7 @@ const page = async ({ params }: any) => {
   return (
     <div className='single-blog-page'>
       {isEnabled ? <BannerDraftMode /> : ''}
-      {post?.blocks.map((block: any, index: number) => {
+      {post?.blocks.map(async (block: any, index: number) => {
         if (block.blockName === 'payfit/hero') {
           return <Hero key={index} {...block.attrs.data} />;
         }
@@ -27,6 +30,9 @@ const page = async ({ params }: any) => {
         }
         if (block.blockName === 'payfit/content') {
           return <Content key={index} {...block.attrs?.data} />;
+        }
+        if (block.blockName === 'payfit/image-tabs') {
+          return <ImageTabs key={index} {...block.attrs?.data} />;
         }
       })}
     </div>
