@@ -1,0 +1,9 @@
+server {
+	listen 80;
+	server_name hackdays-wp.reiwilde.me;
+
+	location / {
+		proxy_pass http://wordpress;
+		proxy_request_buffering off;
+	}
+}

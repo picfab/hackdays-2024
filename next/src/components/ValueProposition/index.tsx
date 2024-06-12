@@ -48,20 +48,29 @@ export const ValueProposition = ({ title, subtitle, ...props }: any) => {
                     key={index}
                     className='w-full md:w-1/3 md:px-12 lg:px-32 flex text-neutral-101'
                   >
-                    <div className='flex justify-center'>
-                      <div className='mb-16 mr-16 w-48 h-48 rounded-6 p-[10px] bg-blue-21'>
-                        <ImageWp loading='lazy' width='40' height='40' />
+                    {item?.logo && (
+                      <div className='flex justify-center'>
+                        <div className='mb-16 mr-16 w-48 h-48 rounded-6 p-[10px] bg-blue-21'>
+                          <ImageWp
+                            loading='lazy'
+                            width='40'
+                            height='40'
+                            id={item.logo}
+                          />
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <div className='text-left'>
-                      <p className='text-neutral-301 font-medium mb-8  md:text-28 text-24 leading-tight font-sans font-medium'>
-                        Mise à jour en temps réel
-                      </p>
-                      <p className='text-neutral-101 text-16 leading-22 font-sans'>
-                        Vous pouvez saisir, modifier ou importer vos variables
-                        de paie jusqu’à la dernière minute. Vos bulletins sont
-                        mis à jour instantanément après chaque ajout.
-                      </p>
+                      {item?.title && (
+                        <p className='text-neutral-301 mb-8  md:text-28 text-24 leading-tight font-sans font-medium'>
+                          {item?.title}
+                        </p>
+                      )}
+                      {item?.content && (
+                        <p className='text-neutral-101 text-16 leading-22 font-sans'>
+                          {item.content}
+                        </p>
+                      )}
                     </div>
                   </div>
                 );

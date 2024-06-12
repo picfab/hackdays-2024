@@ -1,0 +1,12 @@
+server {
+	listen 80;
+  	server_name hackdays-db.reiwilde.me;
+
+	auth_basic "Hackdays";
+	auth_basic_user_file /etc/nginx/htpasswd;
+
+	location / {
+		proxy_pass http://phpmyadmin;
+		proxy_request_buffering off;
+	}
+}

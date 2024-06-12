@@ -1,0 +1,13 @@
+FROM docker.io/ubuntu:noble
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends certbot \
+  && apt-get install -y --no-install-recommends nginx-light \
+  && apt-get install -y --no-install-recommends python3-certbot-nginx \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY config/nginx.conf /etc/nginx
+COPY config/htpasswd /etc/nginx
+COPY config/sites/* /etc/nginx/sites-enabled
+
+CMD [ "nginx" ]
