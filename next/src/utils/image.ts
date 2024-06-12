@@ -4,6 +4,8 @@ const baseUrl =
     : process.env.NEXT_PUBLIC_DOMAIN;
 
 export const getBase64 = async (url: string, mime: string) => {
+  console.log('OOOOOO', { url, mime });
+
   const base64str = await fetch(
     `${baseUrl}/_next/image?url=${url}&w=16&q=75`
   ).then(async (res) =>
@@ -41,10 +43,11 @@ export const getImage = async (id: number | string) => {
 
 export const prepareImageData = async (id: number | string) => {
   const imageData = await getImage(id);
-  const imageBase64 = await getBase64(
-    imageData?.media_details?.sizes?.medium?.source_url ||
-      imageData?.source_url,
-    imageData.mime_type
-  );
-  return Object.assign(imageData, { imageBase64 });
+  // const imageBase64 = await getBase64(
+  //   imageData?.media_details?.sizes?.medium?.source_url ||
+  //     imageData?.source_url,
+  //   imageData.mime_type
+  // );
+  // return Object.assign(imageData, { imageBase64 });
+  return imageData;
 };

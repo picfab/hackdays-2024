@@ -23,8 +23,8 @@ export const ImageWp = ({
           height={
             !fill ? height || imageData?.media_details?.height : undefined
           }
-          placeholder={imageData.imgBase64 ? 'blur' : undefined}
-          blurDataURL={imageData.imgBase64}
+          // placeholder={imageData.imgBase64 ? 'blur' : undefined}
+          // blurDataURL={imageData.imgBase64}
           sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           fill={fill}
           style={{ objectFit: fill && objectFit }}
