@@ -1,0 +1,3 @@
+htaccess
+config/letsencrypt/*
+!config/letsencrypt/.gitkeep
