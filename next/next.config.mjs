@@ -2,16 +2,16 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '10009',
-      },
       // {
-      //   protocol: 'https',
-      //   hostname: 'payfit.fabienpicard.com',
-      //   port: '',
+      //   protocol: 'http',
+      //   hostname: 'localhost',
+      //   port: '10009',
       // },
+      {
+        protocol: 'https',
+        hostname: 'payfit.fabienpicard.com',
+        port: '',
+      },
     ],
   },
 };
