@@ -1,3 +1,4 @@
+import { Content } from '@/components/Content';
 import { BannerDraftMode } from '@/components/BannerDraftMode';
 import { Hero } from '@/components/Hero';
 import { ValueProposition } from '@/components/ValueProposition';
@@ -23,6 +24,9 @@ const page = async ({ params }: any) => {
         }
         if (block.blockName === 'payfit/value-proposition') {
           return <ValueProposition key={index} {...block.attrs.data} />;
+        }
+        if (block.blockName === 'payfit/content') {
+          return <Content key={index} {...block.attrs?.data} />;
         }
       })}
     </div>
