@@ -26,7 +26,6 @@ const page = async ({ params }: any) => {
           return <ValueProposition key={index} {...block.attrs.data} />;
         }
         if (block.blockName === 'payfit/content') {
-          console.log('block.attrs.data', block.attrs?.data);
           return <Content key={index} {...block.attrs?.data} />;
         }
       })}
