@@ -1,8 +1,7 @@
-'use client';
-
 import { classNames } from '@/utils/classNames';
 import { ImageWp } from '../image';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
+import { prepareImageData } from '@/utils/image';
 
 export interface ValuePropositionColumnsItemsProps {
   title?: string;
@@ -15,12 +14,8 @@ export interface ValuePropositionProps {
 }
 
 export const ValueProposition = ({ title, subtitle, ...props }: any) => {
-  console.log(props);
-
-  const rep = prepareRepeaterData('valueContents', props);
 
   const valueContents = prepareRepeaterData('valueContents', props);
-  console.log(rep);
 
   return (
     <div className='ValueProposition bg-neutral-1' id=''>
@@ -42,7 +37,8 @@ export const ValueProposition = ({ title, subtitle, ...props }: any) => {
         <div className='flex flex-wrap md:flex-nowrap'>
           <div className='undefined'>
             <div className='flex gap-y-48 justify-center  flex-wrap'>
-              {valueContents?.map((item: any, index: number) => {
+              {valueContents?.map(async (item: any, index: number) => {
+                const imageData = await prepareImageData(item.logo);
                 return (
                   <div
                     key={index}
@@ -52,10 +48,9 @@ export const ValueProposition = ({ title, subtitle, ...props }: any) => {
                       <div className='flex justify-center'>
                         <div className='mb-16 mr-16 w-48 h-48 rounded-6 p-[10px] bg-blue-21'>
                           <ImageWp
-                            loading='lazy'
-                            width='40'
-                            height='40'
-                            id={item.logo}
+                            imageData={imageData}
+                            width='48'
+                            height='48'
                           />
                         </div>
                       </div>

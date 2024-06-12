@@ -12,5 +12,10 @@
   "devDependencies": {
     "typescript": "^5.4.5"
   },
-  "workspaces": ["./next"]
+  "workspaces": [
+    "./next"
+  ],
+  "dependencies": {
+    "react-player": "2.16.0"
+  }
 }
