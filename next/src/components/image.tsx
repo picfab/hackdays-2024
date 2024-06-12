@@ -30,6 +30,8 @@ const getBase64 = async (url: string, mime: string) => {
 };
 
 const getImage = async (id: number) => {
+  console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${id}`);
+
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${id}`
@@ -45,8 +47,13 @@ export const ImageWp = async ({
   id,
   fill = false,
   objectFit = 'cover',
+  height,
+  width,
+  ...props
 }: any) => {
   const image = await getImage(id);
+  console.log(image);
+
   if (image) {
     const base64 = await getBase64(
       image?.media_details?.sizes?.medium?.source_url || image?.source_url,
@@ -59,8 +66,8 @@ export const ImageWp = async ({
           <Image
             src={image?.source_url}
             alt={image?.alt_text}
-            width={!fill ? image?.media_details?.width : undefined}
-            height={!fill ? image?.media_details?.height : undefined}
+            width={!fill ? width || image?.media_details?.width : undefined}
+            height={!fill ? height || image?.media_details?.height : undefined}
             placeholder='blur'
             blurDataURL={base64}
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'

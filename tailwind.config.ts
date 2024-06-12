@@ -1,11 +1,4 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+export const tailwindConfig = {
   prefix: '',
   corePlugins: {
     container: false,
@@ -57,26 +50,26 @@ const config: Config = {
       },
       dashDoodle: {
         '0%': {
-          strokeDashoffset: '10000',
+          strokeDashoffset: 10000,
         },
         '100%': {
-          strokeDashoffset: '0',
+          strokeDashoffset: 0,
         },
       },
       'fade-in': {
         '0%': {
-          opacity: '0',
+          opacity: 0,
         },
         '100%': {
-          opacity: '1',
+          opacity: 1,
         },
       },
       'fade-out': {
         '0%': {
-          opacity: '1',
+          opacity: 1,
         },
         '100%': {
-          opacity: '0',
+          opacity: 0,
         },
       },
       'slide-right': {
@@ -236,11 +229,11 @@ const config: Config = {
       },
     },
     fontWeight: {
-      light: '300',
-      normal: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
+      light: 300,
+      normal: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
     },
     fontSize: {
       base: ['1rem', { lineHeight: '1.5rem' }],
@@ -283,6 +276,13 @@ const config: Config = {
           lineHeight: '20px',
         },
       ],
+      21: [
+        '16px',
+        {
+          letterSpacing: '0.3px',
+          lineHeight: '22px',
+        },
+      ],
       31: [
         '18px',
         {
@@ -309,6 +309,13 @@ const config: Config = {
         {
           letterSpacing: '0.3px',
           lineHeight: '40px',
+        },
+      ],
+      101: [
+        '38px',
+        {
+          letterSpacing: '0.3px',
+          lineHeight: '46px',
         },
       ],
       sm: '0.875rem',

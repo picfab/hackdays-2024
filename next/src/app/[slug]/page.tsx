@@ -1,4 +1,5 @@
-import { ImageWp } from '@/components/image';
+import { BannerDraftMode } from '@/components/BannerDraftMode';
+import { Hero } from '@/components/Hero';
 import { ValueProposition } from '@/components/ValueProposition';
 import { getPostBySlug } from '@/utils/getPostBySlug';
 import { draftMode } from 'next/headers';
@@ -15,16 +16,15 @@ const page = async ({ params }: any) => {
   }
   return (
     <div className='single-blog-page'>
-      {isEnabled ? 'Draft' : 'NOOOO'}
+      {isEnabled ? <BannerDraftMode /> : ''}
       {post?.blocks.map((block: any, index: number) => {
         if (block.blockName === 'payfit/hero') {
-          return <div key={index}>{block.blockName}</div>;
+          return <Hero key={index} {...block.attrs.data} />;
         }
         if (block.blockName === 'payfit/value-proposition') {
           return <ValueProposition key={index} {...block.attrs.data} />;
         }
       })}
-      {/* <ImageWp id={post?.blocks?.[2]?.attrs?.data?.image} /> */}
     </div>
   );
 };
