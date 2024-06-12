@@ -18,7 +18,6 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-
 function add_webp_to_media_details($data, $post, $request)
 {
     // Vérifier que le post type est bien attachment
