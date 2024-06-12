@@ -1,167 +1,67 @@
-import React, { FC, ReactNode, useRef } from 'react';
-
-
+'use client';
 
 import { classNames } from '@/utils/classNames';
+import { ImageWp } from '../image';
+import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
 
 export interface ValuePropositionColumnsItemsProps {
-  title?: ReactNode;
-  paragraph?: ReactNode;
-  cta?: ReactNode;
+  title?: string;
+  paragraph?: string;
 }
 
 export interface ValuePropositionProps {
-  surtitle?: string;
-  title?: ReactNode;
-  subtitle?: ReactNode;
-  columns: number;
-  columnsItems?: ValuePropositionColumnsItemsProps[];
-  contentText?: {
-    title: ReactNode;
-    paragraph: ReactNode;
-  };
-  contentCta?: ReactNode;
-  contentRight?: boolean;
-  isDark?: boolean;
-  className?: string;
-  iconBackground?: boolean;
-  id?: string;
-  disabledAnimation?: boolean;
-  forceBgCodeColor?: 21 | 51 | 101 | 301;
+  title?: string;
+  subtitle?: string;
 }
 
-export const ValueProposition: FC<ValuePropositionProps> = ({
-  surtitle,
-  title,
-  subtitle,
-  columns,
-  contentText,
-  contentCta,
-  columnsItems,
-  contentRight,
-  isDark = false,
-  className = '',
-  id = '',
-  disabledAnimation = true,
-  forceBgCodeColor,
-}) => {
-  const refTitle = useRef(null);
+export const ValueProposition = ({ title, subtitle, ...props }: any) => {
+  console.log(props);
 
+  const rep = prepareRepeaterData('valueContents', props);
 
+  const valueContents = prepareRepeaterData('valueContents', props);
+  console.log(rep);
 
   return (
-    <div
-      className={classNames(
-        'ValueProposition',
-        className,
-      )}
-      id={id}
-    >
-      <div
-        ref={refTitle}
-        className={classNames(
-          'flex flex-col items-center',
-          !disabledAnimation && 'slideInUp-30 wait',
-        )}
-      >
-        {(title || subtitle || surtitle) && (
-          <div
-            className={classNames(
-              'max-w-[624px] flex flex-col item-start md:items-center',
-              'pb-48 text-left md:text-center lg:pb-64',
-            )}
-          >
-            {title && (
-              <h2
-                className={classNames(
-                  isDark ? 'text-neutral-1' : 'text-neutral-301',
-                )}
-              >
-                {title}
-              </h2>
-            )}
-            {subtitle && (
-              <div
-                className={classNames(
-                  isDark ? 'text-neutral-1' : 'text-neutral-101',
-                )}
-              >
-                {subtitle}
-              </div>
-            )}
-          </div>
-        )}
-        <div
-          className={classNames(
-            'flex flex-wrap md:flex-nowrap',
+    <div className='ValueProposition bg-neutral-1' id=''>
+      <div className='mx-24 sm:px-56 sm:max-w-719 md:px-0 md:mx-auto md:max-w-736 lg:max-w-1000 xl:max-w-1248 flex flex-col items-center'>
+        <div className='max-w-[624px] flex flex-col item-start md:items-center pb-48 text-left md:text-center lg:pb-64'>
+          {title && (
+            <h2 className='md:text-40 md:leading-48 text-28 leading-32 font-sans text-neutral-301'>
+              {title}
+            </h2>
           )}
-        >
-          {(contentText?.title ||
-            contentText?.paragraph ||
-            contentCta 
-            ) && (
-            <div
-              className={classNames(
-                'mb-32',
-                isDark ? 'text-neutral-1' : 'text-neutral-101',
-              )}
-            >
-              {contentText?.title &&
-                (!title ? (
-                  <h2
-                    className={classNames(
-                      isDark ? 'text-neutral-1' : 'text-neutral-301',
-                      'font-medium pb-24',
-                    )}
-                  >
-                    {contentText.title}
-                  </h2>
-                ) : (
-                  <p
-                    className={classNames(
-                      isDark ? 'text-neutral-1' : 'text-neutral-301',
-                      'font-medium pb-24',
-                    )}
-                  >
-                    {contentText?.title}
-                  </p>
-                ))}
-              {contentText?.paragraph && contentText.paragraph}
-
-              {contentCta && <div className="mt-24">{contentCta}</div>}
+          {subtitle && (
+            <div className='text-neutral-101'>
+              <p className='md:text-28 text-24 leading-tight font-sans font-medium mt-24  text-neutral-101'>
+                {subtitle}
+              </p>
             </div>
           )}
-          <div className={``}>
-            <div
-              className={`flex gap-y-48 justify-center  ${
-                columns !== 1 ? 'flex-wrap' : 'flex-col'
-              }`}
-            >
-              {columnsItems?.map((columnItem, columnKey) => {
+        </div>
+        <div className='flex flex-wrap md:flex-nowrap'>
+          <div className='undefined'>
+            <div className='flex gap-y-48 justify-center  flex-wrap'>
+              {valueContents?.map((item: any, index: number) => {
                 return (
                   <div
-                    className={classNames(
-                      columns === 5 ? 'flex-col items-start' : '',
-                      'flex',
-                      isDark ? 'text-neutral-1' : 'text-neutral-101',
-                    )}
-                    key={columnKey}
+                    key={index}
+                    className='w-full md:w-1/3 md:px-12 lg:px-32 flex text-neutral-101'
                   >
-                    <div className={`text-left`}>
-                      {columnItem?.title && (
-                        <p
-                          className={classNames(
-                            isDark ? 'text-neutral-21' : 'text-neutral-301',
-                            'font-medium mb-8 ',
-                          )}
-                        >
-                          {columnItem.title}
-                        </p>
-                      )}
-                      {columnItem?.paragraph && columnItem.paragraph}
-                      {columnItem?.cta && (
-                        <div className="mt-48">{columnItem.cta}</div>
-                      )}
+                    <div className='flex justify-center'>
+                      <div className='mb-16 mr-16 w-48 h-48 rounded-6 p-[10px] bg-blue-21'>
+                        <ImageWp loading='lazy' width='40' height='40' />
+                      </div>
+                    </div>
+                    <div className='text-left'>
+                      <p className='text-neutral-301 font-medium mb-8  md:text-28 text-24 leading-tight font-sans font-medium'>
+                        Mise à jour en temps réel
+                      </p>
+                      <p className='text-neutral-101 text-16 leading-22 font-sans'>
+                        Vous pouvez saisir, modifier ou importer vos variables
+                        de paie jusqu’à la dernière minute. Vos bulletins sont
+                        mis à jour instantanément après chaque ajout.
+                      </p>
                     </div>
                   </div>
                 );
