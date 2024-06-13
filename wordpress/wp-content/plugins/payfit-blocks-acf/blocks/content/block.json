@@ -1,0 +1,17 @@
+{
+  "name": "payfit/content",
+  "title": "Hero acf",
+  "description": "A custom content block that uses ACF fields.",
+  "editorStyle": "file:../../build/content-editor.css",
+  "style": "file:../../build/content-styles.css",
+  "category": "formatting",
+  "icon": "admin-comments",
+  "keywords": ["content"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "template.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}
