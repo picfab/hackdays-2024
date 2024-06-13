@@ -10,12 +10,6 @@
 $title = get_field('title');
 $cards = get_field('cards');
 
-// Helper function to prepare image data (simulating the prepareImageData function).
-function prepare_image_data($image_id) {
-    // In a real-world scenario, you might need to process the image or retrieve additional data.
-    return wp_get_attachment_image_src($image_id, 'full')[0];
-}
-
 ?>
 
 <div class="Section pt-[34px] md:pt-[52px] pb-[34px] md:pb-[52px] bg-neutral-1" id="DatoCmscard-19195297">
@@ -30,9 +24,6 @@ function prepare_image_data($image_id) {
         <div class="AutoScrollingCards flex items-center overflow-hidden" style="gap: 24px;">
             <div class="animate-scroll-inverse flex items-center original flex-1" style="animation-duration: 100000ms; gap: 24px;">
                 <?php foreach ($cards as $index => $card) : ?>
-                    <?php
-                    $imageData = prepare_image_data($card['photo']);
-                    ?>
                     <div class="w-fit h-full relative" key="<?= $index; ?>">
                         <a href="<?= esc_url($card['link']); ?>" class="" data-cta-id="7_DatoCmscard_<?= $index; ?>">
                             <div class="QuoteCard max-w-[356px] rounded-18 flex gap-24 border-2 border-neutral-51 h-[428px] w-[356px] lg:max-w-auto lg:w-[360px] xl:w-[400px] overflow-hidden px-24 py-32 sm:px-40 sm:py-56 Card bg-neutral-1 w-[356px] transition-all duration-500">
@@ -44,7 +35,7 @@ function prepare_image_data($image_id) {
                                     </figure>
                                     <div class="flex gap-16 mt-24">
                                         <div class="hidden sm:block overflow-hidden relative rounded-6" style="height: 60px; width: 60px;">
-                                            <img src="<?= esc_url($imageData); ?>" alt="<?= esc_attr($card['name']); ?>" draggable="false" style="object-fit: cover; opacity: 1;" decoding="async" loading="eager" />
+                                            <?php echo wp_get_attachment_image($card['photo'], 'thumbnail', false, ['style' => 'object-fit: cover; opacity: 1;', 'class' => 'draggable="false"', 'decoding' => 'async', 'loading' => 'eager']); ?>
                                         </div>
                                         <div class="flex flex-col justify-center">
                                             <div class="text-16 leading-22 font-sans text-neutral-301">
