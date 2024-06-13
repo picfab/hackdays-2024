@@ -10,7 +10,10 @@ export interface LogosListProps {
 }
 
 export const LogolistComponent = ({ title = '', logos }: LogosListProps) => {
-  // console.log('LogosListLogosListLogosListLogosListLogosListLogosList', { title, logos });
+  console.log('LogosListLogosListLogosListLogosListLogosListLogosList', {
+    title,
+    logos,
+  });
 
   return (
     <div className={classNames('logos-list overflow-hidden')}>
@@ -35,15 +38,22 @@ export const LogolistComponent = ({ title = '', logos }: LogosListProps) => {
       )}
 
       <div className='mb-12'>
-        {/* <AutoScrollingCards inverse={true} gap={10} duration={42000}>
+        <AutoScrollingCards inverse={true} gap={10} duration={42000}>
           {logos.map(({ className, ...logo }, key) => (
-            <ImageWp
-              className={classNames(className, 'rounded-8')}
+            <div
               key={key}
-              imageData={logo}
-            />
+              className='Logo px-20 h-80 bg-neutral-1 flex items-center justify-center rounded-8'
+            >
+              <ImageWp
+                draggable='false'
+                className='Image max-h-[36px] w-full h-full'
+                imageData={logo}
+                width='20'
+                height='10'
+              />
+            </div>
           ))}
-        </AutoScrollingCards> */}
+        </AutoScrollingCards>
       </div>
     </div>
   );

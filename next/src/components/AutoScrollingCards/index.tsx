@@ -99,7 +99,7 @@ export const AutoScrollingCards: FC<AutoScrollingCardsProps> = ({
           inverse={inverse}
           duration={duration}
           gap={gap}
-          hidden={!displaySecondWrapper}
+          // hidden={!displaySecondWrapper}
           className='flex-1'
           styleTmp={{ width, height }}
         >

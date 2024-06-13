@@ -27,6 +27,7 @@ export const ElementsWrapper = forwardRef<HTMLDivElement, ElementsWrapperProps>(
     ref
   ) => {
     const style = hidden && styleTmp;
+
     return (
       <div
         ref={ref}
@@ -36,9 +37,11 @@ export const ElementsWrapper = forwardRef<HTMLDivElement, ElementsWrapperProps>(
           ...style,
         }}
         className={classNames(
+          'ElementsWrapper',
+
           auto && inverse && 'animate-scroll-inverse',
           auto && !inverse && 'animate-scroll-normal',
-          'flex items-center',
+          'flex items-center min-w-fit',
           className
         )}
       >

@@ -1,1 +1,0 @@
-<div>Value Proposition</div>

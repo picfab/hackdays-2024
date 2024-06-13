@@ -1,12 +1,12 @@
 {
-  "name": "payfit/testimonial",
-  "title": "Payfit testimonial",
-  "description": "A custom testimonial block that uses ACF fields.",
-  "editorStyle": "file:../../build/testimonial-editor.css",
-  "style": "file:../../build/testimonial-styles.css",
+  "name": "payfit/value-proposition",
+  "title": "Payfit Value Proposition",
+  "description": "A custom Value Proposition block that uses ACF fields.",
+  "editorStyle": "file:../../build/value_proposition-editor.css",
+  "style": "file:../../build/value_proposition-styles.css",
   "category": "payfit",
   "icon": "admin-comments",
-  "keywords": ["testimonial"],
+  "keywords": ["value proposition"],
   "acf": {
     "mode": "preview",
     "renderTemplate": "template.php"
