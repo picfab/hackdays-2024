@@ -49,12 +49,36 @@ function tt3child_register_acf_blocks()
 	 *
 	 * @link https://developer.wordpress.org/reference/functions/register_block_type/
 	 */
-	register_block_type(__DIR__ . '/blocks/hero');
-	register_block_type(__DIR__ . '/blocks/value_proposition');
-	register_block_type(__DIR__ . '/blocks/image_tabs');
-	register_block_type(__DIR__ . '/blocks/logo_list');
-	register_block_type(__DIR__ . '/blocks/content');
-	register_block_type(__DIR__ . '/blocks/testimonial');
+	register_block_type(__DIR__ . '/blocks/hero', array(
+		'supports'        => array(
+			'align'        => false,
+		),
+	));
+	register_block_type(__DIR__ . '/blocks/value_proposition', array(
+		'supports'        => array(
+			'align'        => false,
+		),
+	));
+	register_block_type(__DIR__ . '/blocks/image_tabs', array(
+		'supports'        => array(
+			'align'        => false,
+		),
+	));
+	register_block_type(__DIR__ . '/blocks/logo_list', array(
+		'supports'        => array(
+			'align'        => false,
+		),
+	));
+	register_block_type(__DIR__ . '/blocks/content', array(
+		'supports'        => array(
+			'align'        => false,
+		),
+	));
+	register_block_type(__DIR__ . '/blocks/testimonial', array(
+		'supports'        => array(
+			'align'        => false,
+		),
+	));
 
 	remove_filter('acf_the_content', 'wpautop');
 }
