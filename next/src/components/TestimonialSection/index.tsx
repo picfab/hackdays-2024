@@ -88,7 +88,6 @@ export const TestimonialSection = async ({
                             decoding="async"
                             loading="eager"
                             imageData={card.imageData}
-                            priority={true}
                           />
                         </div>
                         <div className="flex flex-col justify-center">
