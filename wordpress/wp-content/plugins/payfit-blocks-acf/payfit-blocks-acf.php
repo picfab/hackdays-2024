@@ -29,6 +29,7 @@ include_once(plugin_dir_path(__FILE__) . 'blocks/image_tabs/acf.php');
 include_once(plugin_dir_path(__FILE__) . 'blocks/testimonial/acf.php');
 include_once(plugin_dir_path(__FILE__) . 'blocks/logo_list/acf.php');
 include_once(plugin_dir_path(__FILE__) . 'blocks/value_proposition/acf.php');
+include_once(plugin_dir_path(__FILE__) . 'blocks/content/acf.php');
 
 
 /**
