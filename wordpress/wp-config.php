@@ -130,8 +130,10 @@ if (!defined('ABSPATH')) {
 }
 
 
-define('WP_HOME', getenv_docker('WORDPRESS_HOME', ''));
-define('WP_SITEURL', getenv_docker('WORDPRESS_SITEURL', ''));
+define( 'WP_HOME', getenv_docker('WORDPRESS_HOME', '') );
+define( 'WP_SITEURL', getenv_docker('WORDPRESS_SITEURL', '') );
+define( 'NEXTJS_URL', getenv_docker('WORDPRESS_NEXTJS_URL', '') );
+
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
