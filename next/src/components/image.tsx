@@ -9,6 +9,7 @@ export const ImageWp = ({
   width,
   alt,
   className,
+  draggable,
   priority,
   ...props
 }: any) => {
@@ -17,6 +18,7 @@ export const ImageWp = ({
       <>
         <Image
           // alt={alt}
+          draggable={draggable}
           src={imageData?.source_url}
           alt={imageData?.alt_text}
           // width={!fill ? width : undefined}

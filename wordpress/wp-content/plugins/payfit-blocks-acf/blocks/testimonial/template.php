@@ -1,1 +1,1 @@
-<div>Value Proposition</div>
+<div>Testimonial</div>
