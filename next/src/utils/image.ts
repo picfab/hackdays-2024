@@ -39,16 +39,46 @@ export const getImage = async (id: number | string) => {
   }
 };
 
+export const getImages = async (ids: Array<number | string>) => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media?include=${ids.join(
+        ','
+      )}`
+    );
+    const images = await response.json();
+    return images;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const isSvg = (url: string) => url?.endsWith('.svg');
 export const prepareImageData = async (id: number | string) => {
   const imageData = await getImage(id);
-  console.log('ISSVG', isSvg(imageData?.source_url));
 
   if (imageData && isSvg(imageData?.source_url)) return imageData;
+
   const imageBase64 = await getBase64(
     imageData?.media_details?.sizes?.medium?.source_url ||
       imageData?.source_url,
     imageData.mime_type
   );
   return Object.assign(imageData, { imageBase64 });
+};
+
+export const prepareImagesData = async (ids: Array<number | string>) => {
+  const imagesData = await getImages(ids);
+  const images = imagesData.map(async (imageData: any) => {
+    if (imageData && isSvg(imageData?.source_url)) return imageData;
+
+    const imageBase64 = await getBase64(
+      imageData?.media_details?.sizes?.medium?.source_url ||
+        imageData?.source_url,
+      imageData.mime_type
+    );
+    return Object.assign(imageData, { imageBase64 });
+  });
+
+  return await Promise.all(images);
 };

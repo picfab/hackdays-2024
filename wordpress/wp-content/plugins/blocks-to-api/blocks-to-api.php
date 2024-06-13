@@ -43,6 +43,7 @@ add_action('rest_api_init', function () {
     register_rest_route('custom/v1', '/slug/(?P<slug>[a-zA-Z0-9-]+)', array(
         'methods' => 'GET',
         'callback' => 'get_content_by_slug',
+        'permission_callback' => '__return_true',
     ));
 });
 

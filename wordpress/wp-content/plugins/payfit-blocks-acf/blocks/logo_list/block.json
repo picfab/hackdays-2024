@@ -1,0 +1,17 @@
+{
+  "name": "payfit/logo-list",
+  "title": "Logo List",
+  "description": "A custom logo list block that uses ACF fields.",
+  "editorStyle": "file:../../build/logo_list-editor.css",
+  "style": "file:../../build/logo_list-styles.css",
+  "category": "formatting",
+  "icon": "admin-comments",
+  "keywords": ["logo list"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "template.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

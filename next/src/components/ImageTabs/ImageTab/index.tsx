@@ -24,7 +24,7 @@ const ImageTabCta = forwardRef<HTMLDivElement, any>(function ImageTabCta(
     <div className={classNames(!isSelected && 'hidden')} ref={ref}>
       <a
         href={url}
-        className='items-center group flex items-center inline-flex cursor-pointer text-primary-1 hover:text-black'
+        className='items-center group flex  cursor-pointer text-primary-1 hover:text-black'
       >
         {label}
       </a>

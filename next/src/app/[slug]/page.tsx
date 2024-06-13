@@ -5,14 +5,14 @@ import { ValueProposition } from '@/components/ValueProposition';
 import { getPostBySlug } from '@/utils/getPostBySlug';
 import { draftMode } from 'next/headers';
 import { ImageTabs } from '@/components/ImageTabs';
-
+import { LogosList } from '@/components/Logolist';
 
 const page = async ({ params }: any) => {
   const { isEnabled } = draftMode();
 
   const post = await getPostBySlug(params.slug, isEnabled);
-  // console.log('post', post);
-  // console.log('✅params', params);
+  console.log('post', post);
+  console.log('✅params', params);
 
   if (!post) {
     return <div>Loading...</div>;
@@ -32,6 +32,9 @@ const page = async ({ params }: any) => {
         }
         if (block.blockName === 'payfit/image-tabs') {
           return <ImageTabs key={index} {...block.attrs?.data} />;
+        }
+        if (block.blockName === 'payfit/logo-list') {
+          return <LogosList key={index} {...block.attrs?.data} />;
         }
       })}
     </div>
