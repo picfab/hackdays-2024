@@ -86,7 +86,7 @@ export const TestimonialSection = async ({
                             draggable="false"
                             style={{ objectFit: 'cover', opacity: 1 }}
                             decoding="async"
-                            loading="eager"
+                            loading="lazy"
                             imageData={card.imageData}
                           />
                         </div>
