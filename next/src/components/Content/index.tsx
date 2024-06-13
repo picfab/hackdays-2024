@@ -1,4 +1,3 @@
-'use client';
 import { prepareImageData } from '@/utils/image';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
 import React from 'react';
@@ -10,9 +9,17 @@ export interface ContentProps {
   image: string;
 }
 
-export const Content = ({ title, content, image, ...props }: ContentProps) => {
+export const Content = async ({
+  title,
+  content,
+  image,
+  ...props
+}: ContentProps) => {
   const buttons = prepareRepeaterData('buttons', props);
-  const imageData = prepareImageData(image);
+  console.log('props', props);
+  console.log('image', image);
+
+  const imageData = await prepareImageData(image);
   return (
     <div
       className="Content mx-24 sm:px-56 sm:max-w-719 md:px-0 md:mx-auto md:max-w-736 lg:max-w-1000 xl:max-w-1248"
@@ -36,26 +43,21 @@ export const Content = ({ title, content, image, ...props }: ContentProps) => {
               {buttons.map((button, index) => (
                 <div
                   key={index}
-                  className="ButtonV2 items-center group flex items-center justify-center text-center flex cursor-pointer border-primary-1 text-primary-1 hover:bg-blue-301 hover:border-blue-301 hover:text-white rounded-6 border py-[13px] px-[24px] text-16"
+                  className="ButtonV2 group flex items-center justify-center text-center cursor-pointer border-primary-1 text-primary-1 hover:bg-blue-301 hover:border-blue-301 hover:text-white rounded-6 border py-[13px] px-[24px] text-16"
                 >
                   {button.text}
                 </div>
               ))}
             </div>
           </div>
-          <div className="md:w-1/2">
-            <div
-              data-gatsby-image-wrapper=""
-              className="gatsby-image-wrapper gatsby-image-wrapper-constrained Image rounded-12"
-            >
+          <div className="Image rounded-12">
+            <div className="max-w-[556px] block">
               <ImageWp
                 draggable="false"
-                style={{ objectFit: 'cover', opacity: 1 }}
-                decoding="async"
-                loading="eager"
+                loading="lazy"
                 imageData={imageData}
-                priority={true}
-              />{' '}
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>
