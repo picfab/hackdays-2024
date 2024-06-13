@@ -7,7 +7,6 @@ import { getPostBySlug } from '@/utils/getPostBySlug';
 import { draftMode } from 'next/headers';
 import { ImageTabs } from '@/components/ImageTabs';
 import { LogosList } from '@/components/Logolist';
-import '../glogal.scss';
 
 const page = async ({ params }: any) => {
   const { isEnabled } = draftMode();
