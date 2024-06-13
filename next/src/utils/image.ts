@@ -44,7 +44,8 @@ export const getImages = async (ids: Array<number | string>) => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media?include=${ids.join(
         ','
-      )}`
+      )}`,
+      { next: { revalidate: 3600 } }
     );
     const images = await response.json();
     return images;
