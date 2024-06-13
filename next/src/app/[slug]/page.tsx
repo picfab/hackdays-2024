@@ -33,6 +33,7 @@ const page = async ({ params }: any) => {
         }
         if (block.blockName === 'payfit/image-tabs') {
           return <ImageTabs key={index} {...block.attrs?.data} />;
+        }
         if (block.blockName === 'payfit/testimonial') {
           return <TestimonialSection key={index} {...block.attrs.data} />;
         }
