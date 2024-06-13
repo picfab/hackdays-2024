@@ -49,6 +49,7 @@ export const VideoThumbnail = ({
             classnameThumbnail
           )}
           priority={imagePriority}
+          loading={imagePriority ? 'eager' : 'lazy'}
         />
       )}
       {gradient && (
