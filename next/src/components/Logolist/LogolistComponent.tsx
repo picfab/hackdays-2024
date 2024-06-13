@@ -10,13 +10,8 @@ export interface LogosListProps {
 }
 
 export const LogolistComponent = ({ title = '', logos }: LogosListProps) => {
-  console.log('LogosListLogosListLogosListLogosListLogosListLogosList', {
-    title,
-    logos,
-  });
-
   return (
-    <div className={classNames('logos-list overflow-hidden')}>
+    <div className={classNames('logos-list overflow-hidden bg-blue-21')}>
       {title && (
         <div
           className={classNames(

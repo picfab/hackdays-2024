@@ -16,16 +16,12 @@ export const ImageTabs = async (props: any) => {
   return (
     <div
       className={classNames(
-        'SectionImageTabs',
-        // container,
-        'text-neutral-301 flex',
-        'flex-col items-center'
+        'SectionImageTabs mx-24 sm:px-56 sm:max-w-719 md:px-0 md:mx-auto md:max-w-736 lg:max-w-1000 xl:max-w-1248 text-neutral-301 flex flex-col items-center'
       )}
     >
       <h2
         className={classNames(
-          'mb-64 font-medium text-center md:w-6/12'
-          // textTitle1
+          'mb-64 font-medium text-center md:w-6/12 md:text-40 md:leading-48 text-28 leading-32 font-sans'
         )}
       >
         {props?.title}

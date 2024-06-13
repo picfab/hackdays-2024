@@ -18,7 +18,7 @@ export const ValueProposition = ({ title, subtitle, ...props }: any) => {
   const valueContents = prepareRepeaterData('valueContents', props);
 
   return (
-    <div className='ValueProposition bg-neutral-1' id=''>
+    <div className='ValueProposition bg-neutral-1 pt-[68px]' id=''>
       <div className='mx-24 sm:px-56 sm:max-w-719 md:px-0 md:mx-auto md:max-w-736 lg:max-w-1000 xl:max-w-1248 flex flex-col items-center'>
         <div className='max-w-[624px] flex flex-col item-start md:items-center pb-48 text-left md:text-center lg:pb-64'>
           {title && (
