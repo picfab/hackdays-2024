@@ -29,6 +29,7 @@ include_once(plugin_dir_path(__FILE__) . 'blocks/image_tabs/acf.php');
 include_once(plugin_dir_path(__FILE__) . 'blocks/logo_list/acf.php');
 include_once(plugin_dir_path(__FILE__) . 'blocks/value_proposition/acf.php');
 include_once(plugin_dir_path(__FILE__) . 'blocks/content/acf.php');
+include_once(plugin_dir_path(__FILE__) . 'blocks/testimonial/acf.php');
 
 
 /**
@@ -52,6 +53,8 @@ function tt3child_register_acf_blocks()
 	register_block_type(__DIR__ . '/blocks/value_proposition');
 	register_block_type(__DIR__ . '/blocks/image_tabs');
 	register_block_type(__DIR__ . '/blocks/logo_list');
+	register_block_type(__DIR__ . '/blocks/content');
+	register_block_type(__DIR__ . '/blocks/testimonial');
 
 	remove_filter('acf_the_content', 'wpautop');
 }
