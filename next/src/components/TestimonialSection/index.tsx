@@ -1,4 +1,3 @@
-'use client';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
 import React from 'react';
 import { ImageWp } from '../image';
