@@ -1,4 +1,3 @@
-'use client';
 
 import { classNames } from '@/utils/classNames';
 import { AutoScrollingCards } from '../AutoScrollingCards';
