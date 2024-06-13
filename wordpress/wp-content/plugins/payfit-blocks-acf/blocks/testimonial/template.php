@@ -13,7 +13,7 @@ $cards = get_field('cards');
 ?>
 
 <div class="Section pt-[34px] md:pt-[52px] pb-[34px] md:pb-[52px] bg-neutral-1" id="DatoCmscard-19195297">
-    <div class="card bg-neutral-1" id="Nos-clients-parlent-de-nous-">
+    <div class="bg-neutral-1" id="Nos-clients-parlent-de-nous-">
         <div class="mx-24 sm:px-56 sm:max-w-719 md:px-0 md:mx-auto md:max-w-736 lg:max-w-1000 xl:max-w-1248 flex flex-col items-center mb-64 space-y-32">
             <?php if ($title) : ?>
                 <h2 class="w-full text-center md:w-1/2 md:text-40 md:leading-48 text-28 leading-32 font-sans text-neutral-301">
