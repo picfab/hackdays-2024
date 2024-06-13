@@ -4,7 +4,7 @@
   "description": "A custom testimonial block that uses ACF fields.",
   "editorStyle": "file:../../build/hero-editor.css",
   "style": "file:../../build/hero-styles.css",
-  "category": "formatting",
+  "category": "payfit",
   "icon": "admin-comments",
   "keywords": ["Payfit"],
   "acf": {

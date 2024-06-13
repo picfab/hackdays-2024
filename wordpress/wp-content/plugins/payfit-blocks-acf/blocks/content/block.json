@@ -1,10 +1,10 @@
 {
   "name": "payfit/content",
-  "title": "Hero acf",
+  "title": "Payfit content",
   "description": "A custom content block that uses ACF fields.",
   "editorStyle": "file:../../build/content-editor.css",
   "style": "file:../../build/content-styles.css",
-  "category": "formatting",
+  "category": "payfit",
   "icon": "admin-comments",
   "keywords": ["content"],
   "acf": {
