@@ -1,4 +1,3 @@
-import React from 'react';
 import FacebookPlayer from 'react-player/facebook';
 import { useVideoProgress } from './useVideoProgress';
 

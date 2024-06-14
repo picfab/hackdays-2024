@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { classNames } from '@/utils/classNames';
 import { ImageWp } from '../image';
 import { VideoOpenButton } from './VideoOpenButton';

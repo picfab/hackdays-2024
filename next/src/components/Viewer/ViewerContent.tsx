@@ -1,5 +1,4 @@
 import { classNames } from '@/utils/classNames';
-import React from 'react';
 
 export interface ViewerContentProps {
   className?: string;

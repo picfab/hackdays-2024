@@ -3,6 +3,19 @@ const baseUrl =
     ? 'http://localhost:3000/'
     : process.env.NEXT_PUBLIC_DOMAIN;
 
+const myHeaders = new Headers();
+const base64Credentials = btoa(`${process.env.NEXT_WORDPRESS_AUTHORIZATION}`);
+const authorization: any = `Basic ${base64Credentials}`;
+
+myHeaders.append('Content-Type', 'application/json');
+myHeaders.append('Authorization', authorization);
+
+const requestOptions: any = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow',
+};
+
 export const getBase64 = async (url: string, mime: string) => {
   const base64str = await fetch(
     `${baseUrl}/_next/image?url=${url}&w=16&q=75`
@@ -30,7 +43,8 @@ export const getBase64 = async (url: string, mime: string) => {
 export const getImage = async (id: number | string) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${id}`
+      `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/media/${id}`,
+      requestOptions
     );
     const image = await response.json();
     return image;

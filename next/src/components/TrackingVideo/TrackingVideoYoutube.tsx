@@ -1,4 +1,3 @@
-import React from 'react';
 import YoutubePlayer from 'react-player/youtube';
 import { useVideoProgress } from './useVideoProgress';
 

@@ -19,7 +19,7 @@ const page = async ({ params }: any) => {
   return (
     <div className='single-blog-page'>
       {isEnabled ? <BannerDraftMode /> : ''}
-      {post?.blocks.map(async (block: any, index: number) => {
+      {post?.blocks?.map(async (block: any, index: number) => {
         if (block.blockName === 'payfit/hero') {
           return <Hero key={index} {...block.attrs.data} />;
         }

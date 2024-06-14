@@ -16,7 +16,9 @@ export async function getPostBySlug(slug: string, isDraft: boolean = false) {
 
   const response: any = await fetch(
     `${process.env.NEXT_PUBLIC_WORDPRESS_CUSTOM_API_URL}/slug/${slug}`
+    
   );
+  
   const post = await response.json();
 
   let draft;

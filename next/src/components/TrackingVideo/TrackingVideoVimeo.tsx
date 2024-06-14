@@ -1,4 +1,3 @@
-import React from 'react';
 import VimeoPlayer from 'react-player/vimeo';
 import { useVideoProgress } from './useVideoProgress';
 

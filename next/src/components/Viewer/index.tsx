@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ViewerContent } from './ViewerContent';
 import { ViewerContext } from './ViewerContext';
 import { ViewerElement } from './ViewerElement';

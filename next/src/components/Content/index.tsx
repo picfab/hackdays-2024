@@ -1,6 +1,5 @@
 import { prepareImageData } from '@/utils/image';
 import { prepareRepeaterData } from '@/utils/prepareRepeaterData';
-import React from 'react';
 import { ImageWp } from '../image';
 import { classNames } from '@/utils/classNames';
 
@@ -19,8 +18,6 @@ export const Content = async ({
   ...props
 }: ContentProps) => {
   const buttons = prepareRepeaterData('buttons', props);
-  console.log('props', props);
-  console.log('image', image);
 
   const imageData = await prepareImageData(image);
   return (

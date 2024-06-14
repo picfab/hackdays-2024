@@ -24,52 +24,6 @@ export const AutoScrollingCards: FC<AutoScrollingCardsProps> = ({
   auto = true,
   gap = 16,
 }) => {
-  // const [displaySecondWrapper, setDisplaySecondWrapper] = useState(false);
-  // const [width, setWidth] = useState<number | undefined>(0);
-  // const [height, setHeight] = useState<number | undefined>(0);
-
-  // const firstWrapperRef = useRef<HTMLDivElement>(null);
-
-  // const checkPosition = useCallback(() => {
-  //   const wrapper = firstWrapperRef.current;
-  //   if (wrapper && !displaySecondWrapper) {
-  //     const rect = wrapper.getBoundingClientRect();
-
-  //     if (!displaySecondWrapper) {
-  //       const displaySecond = inverse
-  //         ? rect.right > 0 && rect.right < window.innerWidth + 400
-  //         : rect.left > -400;
-  //       if (displaySecond) {
-  //         setDisplaySecondWrapper(true);
-  //       } else {
-  //         requestAnimationFrame(checkPosition);
-  //       }
-  //     }
-  //   }
-  // }, [displaySecondWrapper, inverse]);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     checkPosition(); // Recalculer la position lors du redimensionnement de la fenêtre
-  //   };
-
-  //   if (typeof window !== undefined && !displaySecondWrapper) {
-  //     window.addEventListener('resize', handleResize);
-  //     checkPosition(); // Initialiser la vérification de la position
-  //   }
-
-  //   if (displaySecondWrapper) {
-  //     window.removeEventListener('resize', handleResize);
-  //   }
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, [checkPosition, displaySecondWrapper, inverse]);
-
-  // useEffect(() => {
-  //   setWidth(firstWrapperRef.current?.offsetWidth);
-  //   setHeight(firstWrapperRef.current?.offsetHeight);
-  // }, [firstWrapperRef]);
 
   return (
     <div

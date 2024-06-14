@@ -3,7 +3,6 @@ import { getPostBySlug } from '@/utils/getPostBySlug';
 import { draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-// http://localhost:3000/api/draft?secret=AZERTY&slug=dsfsdf
 export async function GET(request: Request) {
 
   // Parse query string parameters
