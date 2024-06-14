@@ -38,16 +38,15 @@ export const ElementsWrapper = forwardRef<HTMLDivElement, ElementsWrapperProps>(
         }}
         className={classNames(
           'ElementsWrapper',
-
           auto && inverse && 'animate-scroll-inverse',
           auto && !inverse && 'animate-scroll-normal',
-          'flex items-center min-w-fit',
+          'flex items-center max-w-fit',
           className
         )}
       >
         {!hidden &&
           children.map((e, i) => (
-            <div key={i} className='w-fit h-full relative'>
+            <div key={i} className='w-max h-full relative'>
               {e}
             </div>
           ))}
