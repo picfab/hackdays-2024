@@ -1,4 +1,3 @@
-
 import { classNames } from '@/utils/classNames';
 import { AutoScrollingCards } from '../AutoScrollingCards';
 import { ImageWp } from '../image';
@@ -44,6 +43,7 @@ export const LogolistComponent = ({ title = '', logos }: LogosListProps) => {
                 imageData={logo}
                 width='20'
                 height='10'
+                sizes='10vw'
               />
             </div>
           ))}

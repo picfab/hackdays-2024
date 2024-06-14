@@ -11,6 +11,7 @@ export const ImageWp = ({
   className,
   draggable,
   priority,
+  sizes,
   ...props
 }: any) => {
   if (imageData) {
@@ -30,7 +31,9 @@ export const ImageWp = ({
           unoptimized={isSvg(imageData?.source_url) ? true : false}
           placeholder={imageData.imgBase64 ? 'blur' : undefined}
           blurDataURL={imageData.imgBase64}
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+          sizes={
+            sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+          }
           fill={fill}
           style={{ objectFit: fill && objectFit }}
           className={className}
