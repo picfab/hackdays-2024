@@ -43,7 +43,7 @@ export const LogolistComponent = ({ title = '', logos }: LogosListProps) => {
                 imageData={logo}
                 width='20'
                 height='10'
-                sizes='10vw'
+                sizes='(max-width: 3000px) 104px, 104px'
               />
             </div>
           ))}
